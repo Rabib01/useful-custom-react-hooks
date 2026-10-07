@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+vimport { useCallback, useEffect, useState } from "react"
 
 export default function useAsync(callback, dependencies = []) {
   const [loading, setLoading] = useState(true)
@@ -167,7 +167,8 @@ Memory version
 
 */
   
-/**
+/**memry verision : why we need effects
+
 Generally, we need useEffect when rendering the React UI is not enough and we need to synchronize our component with
 something outside of React’s rendering process. React’s normal job is basically “given the current state and props, calculate 
 what the UI should look like”; an Effect is for saying “after React has rendered, now perform this external side effect.” Examples 
