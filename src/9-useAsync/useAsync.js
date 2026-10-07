@@ -141,6 +141,13 @@ useCallback preserves the function's reference when its dependencies haven't cha
 
 17. So why not put dependencies directly in useEffect?
 
+useEffect(() => {
+   ... async stuff
+}, dependencies)
+
+
+The custom hook is using useCallback to separate the operation itself from the Effect that triggers it.
+
   
   /
-}
+ }
