@@ -157,12 +157,18 @@ The custom hook is using useCallback to separate the operation itself from the E
 /**
 Memory version  
  useCallback memoizes a function reference, not the function’s result—
- if its dependencies stay the same, React gives you the same function reference across renders; if any dependency changes, React creates/returns
- a new function reference. A dependency is simply a value that React compares to decide whether something needs to be recreated or rerun; dependencies are
- compared between renders, not continuously “watched.” In useAsync, useCallback keeps callbackMemoized stable, while useEffect uses [callbackMemoized] to decide 
- when to execute it: same callback reference → Effect doesn’t rerun; new callback reference → Effect reruns. Without useCallback, a new function would be created on
- every render, so [callbackMemoized] would always look changed, causing the Effect to run again and potentially create a render → Effect → state update → render loop. Finally,
- memoization means remembering/reusing something until its dependencies change; useCallback memoizes a function reference, while useMemo memoizes a calculated value.
+ if its dependencies stay the same, React gives you the same function reference across renders; \
+ if any dependency changes, React creates/returns
+ a new function reference. A dependency is simply a value that React compares to
+ decide whether something needs to be recreated or rerun; dependencies are
+ compared between renders, not continuously “watched.” In useAsync, useCallback 
+ keeps callbackMemoized stable, while useEffect uses [callbackMemoized] to decide 
+ when to execute it: same callback reference → Effect doesn’t rerun; new callback 
+ reference → Effect reruns. Without useCallback, a new function would be created on
+ every render, so [callbackMemoized] would always look changed, causing the Effect
+ to run again and potentially create a render → Effect → state update → render loop. Finally,
+ memoization means remembering/reusing something until its dependencies change; useCallback
+ memoizes a function reference, while useMemo memoizes a calculated value.
 
 
 */
