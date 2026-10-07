@@ -167,6 +167,15 @@ Memory version
 
 */
   
- 
+/**
+Generally, we need useEffect when rendering the React UI is not enough and we need to synchronize our component with
+something outside of React’s rendering process. React’s normal job is basically “given the current state and props, calculate 
+what the UI should look like”; an Effect is for saying “after React has rendered, now perform this external side effect.” Examples 
+include fetching data from an API, changing the browser document title, subscribing to an event source, starting/stopping a timer, connecting to
+a WebSocket, interacting with browser APIs, or synchronizing with a third-party library. The key distinction to memorize is: rendering should 
+calculate what the UI is; Effects should synchronize with things outside React. If you can calculate something directly from props/state, you usually 
+do not need an Effect. For example, const total = price * quantity belongs in rendering, not useEffect; but document.title = "Cart" involves the browser
+outside React, so an Effect can synchronize the browser with React state.
+*/ 
  
  }
