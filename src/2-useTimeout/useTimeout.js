@@ -3,7 +3,10 @@ import { useCallback, useEffect, useRef } from "react"
 export default function useTimeout(callback, delay) {
   const callbackRef = useRef(callback)
   const timeoutRef = useRef()
-
+  // callback ref stores a callback function - therefores refs can also be used to store functions with values 
+  // callbackRef.current = callback means you're storing the latest version of the callback function inside a ref. 
+  // Imagine you're building a debounce hook. A user types into a search box, and you want to execute a callback after they stop typing for a certain amount of time.
+  // 
   useEffect(() => {
     callbackRef.current = callback
   }, [callback])
@@ -27,4 +30,10 @@ export default function useTimeout(callback, delay) {
   }, [clear, set])
 
   return { reset, clear }
+}
+
+{
+  /**
+  Bro, the important thing to understand is that useCallback preserves a function reference between renders unless its dependencies change. It does not stop the function from executing, and it does not preserve the function's internal state.
+  */
 }
