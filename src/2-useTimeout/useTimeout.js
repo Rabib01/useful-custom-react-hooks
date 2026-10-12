@@ -35,5 +35,9 @@ export default function useTimeout(callback, delay) {
 {
   /**
   Bro, the important thing to understand is that useCallback preserves a function reference between renders unless its dependencies change. It does not stop the function from executing, and it does not preserve the function's internal state.
+  
+  why couldnt it be created inside an effect if it had to depend on delay ? why could we do the memoizing in the useEffect like in hte previous block of code ?
+  Because set is a function you need to call, whereas the previous effect automatically updates callbackRef.current when callback changes.
+  useEffect runs after rendering; useCallback preserves the function reference between renders. They serve different purposes.
   */
 }
