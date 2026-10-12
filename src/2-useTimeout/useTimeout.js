@@ -44,3 +44,12 @@ export default function useTimeout(callback, delay) {
   Because timeoutIDRef is a ref whose identity stays the same across renders, so it doesn't need to be a dependency.
   */
 }
+
+{
+  /* Order of executio
+  Initial render:
+  Render → useCallback checks dependencies → Commit DOM → Browser paint → useEffect runs
+  On re-render:
+  State/props change → Render → useCallback checks dependencies (reuse or create function) → Commit DOM changes → Browser paint → useEffect runs if dependencies changed
+  */
+}
